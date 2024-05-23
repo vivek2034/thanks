@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Box Full Screen</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFB6C1; /* Baby pink background */
+            font-family: 'Arial', sans-serif;
+            color: white; /* White text color */
+        }
+        #clickBox, #secondBox {
+            margin-top: 20px;
+            width: 80%;
+            height: 100px;
+            background-color: #FFB6C1; /* Baby pink background for boxes */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1.5em;
+            border: 3px solid white; /* White border */
+            border-radius: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+        #clickBox:hover, #secondBox:hover {
+            background-color: #FFB6C1; /* Lighter pink on hover */
+            transform: scale(1.05); /* Slightly larger on hover */
+        }
+        #secondBox {
+            display: none;
+        }
+        input[type="text"] {
+            width: 80%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 1.5em;
+            border: 3px solid white;
+            border-radius: 15px;
+            background-color: #FFB6C1; /* Baby pink background for input */
+            color: white; /* White text color */
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <div id="clickBox" onclick="changeText()">Click Me</div>
+    <div id="secondBox" onclick="secondText()">Click Me Again!!!</div>
+
+    <script>
+        function changeText() {
+            var name = document.getElementById('nameInput').value;
+            if (name !== '') {
+                document.getElementById('clickBox').innerText = "Hello, " + name + "! You Are A Good Person Thanks For Everything 🤗";
+                document.getElementById('nameInput').style.display = 'none'; // Hide the name input field
+                setTimeout(() => {
+                    document.getElementById('clickBox').style.display = 'none';
+                    document.getElementById('secondBox').style.display = 'flex';
+                }, 3500);
+            } else {
+                alert('Please enter your name!');
+            }
+        }
+
+        function secondText() {
+            document.getElementById('secondBox').innerText = "If You Ever Need Help Just Let Me Know I Will Try My Best To Help You 😊";
+        }
+    </script>
+</body>
+</html>
